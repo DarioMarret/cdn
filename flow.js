@@ -8801,7 +8801,7 @@ function e(e) {
             { data: s, error: l } = await (({ apiHost: e, ...t }) =>
               Pe({
                 method: "POST",
-                url: `${je(e) ? e : it()}/api/v1/sendMessage`,
+                url: `${je(e) ? e : it()}/api/v1/sendMessage?planform=web`,
                 body: t,
               }))({
               apiHost: e.context.apiHost,
@@ -9107,7 +9107,7 @@ function e(e) {
                 throw new Error("Typebot ID is required to get initial messages");
               return Pe({
                 method: "POST",
-                url: `${je(n) ? n : it()}/api/v1/sendMessage`,
+                url: `${je(n) ? n : it()}/api/v1/sendMessage?planform=web`,
                 body: {
                   startParams: {
                     isPreview: t,
