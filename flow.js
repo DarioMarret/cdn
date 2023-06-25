@@ -9618,12 +9618,33 @@ function e(e) {
     ),
     es = () => {
       window.postMessage({ isFromTypebot: !0, command: "close" });
+      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id: "close"})
+      })
     },
     ts = () => {
       window.postMessage({ isFromTypebot: !0, command: "hidePreviewMessage" });
+      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id: "hidePreviewMessage"})
+      })
     },
     ns = () => {
       window.postMessage({ isFromTypebot: !0, command: "open" });
+      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id: "open"})
+      })
     },
     rs = (e) => {
       const t = {
@@ -9636,6 +9657,14 @@ function e(e) {
     os = (e) => {
       const t = { isFromTypebot: !0, command: "showPreviewMessage", message: e };
       window.postMessage(t);
+      window.postMessage({ isFromTypebot: !0, command: "open" });
+      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({status: "open", id: "showPreviewMessage", message: e})
+      })
     },
     as = () => {
       window.postMessage({ isFromTypebot: !0, command: "toggle" });
