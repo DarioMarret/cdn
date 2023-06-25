@@ -1622,6 +1622,7 @@ function e(e) {
         })()
       );
     },
+    //function que se encrega de cargar la url
     it = () =>
       Le("VIEWER_INTERNAL_URL") ??
       Le("VIEWER_URL")?.split(",")[0] ??
@@ -9641,6 +9642,7 @@ function e(e) {
     },
     is = (e) => {
       const t = e.id
+      console.log("Init: ",t)
         ? document.getElementById(e.id)
         : document.querySelector("typebot-standard");
       if (!t) throw new Error("<typebot-standard> element not found.");
