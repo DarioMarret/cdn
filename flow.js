@@ -9616,9 +9616,9 @@ function e(e) {
     Qi = le(
       "<style>\n:host {\n  display: block;\n  width: 100%;\n  height: 100%;\n  overflow-y: hidden;\n}\n"
     ),
-    es = () => {
+    es = async () => {
       window.postMessage({ isFromTypebot: !0, command: "close" });
-      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+      await fetch('https://4b72-45-187-2-165.ngrok-free.app',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -9626,9 +9626,9 @@ function e(e) {
         body: JSON.stringify({id: "close"})
       })
     },
-    ts = () => {
+    ts = async () => {
       window.postMessage({ isFromTypebot: !0, command: "hidePreviewMessage" });
-      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+      await fetch('https://4b72-45-187-2-165.ngrok-free.app',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -9636,9 +9636,9 @@ function e(e) {
         body: JSON.stringify({id: "hidePreviewMessage"})
       })
     },
-    ns = () => {
+    ns = async () => {
       window.postMessage({ isFromTypebot: !0, command: "open" });
-      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+      await fetch('https://4b72-45-187-2-165.ngrok-free.app',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -9654,11 +9654,11 @@ function e(e) {
       };
       window.postMessage(t);
     },
-    os = (e) => {
+    os = async (e) => {
       const t = { isFromTypebot: !0, command: "showPreviewMessage", message: e };
       window.postMessage(t);
       window.postMessage({ isFromTypebot: !0, command: "open" });
-      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+      await fetch('https://4b72-45-187-2-165.ngrok-free.app',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -9669,9 +9669,9 @@ function e(e) {
     as = () => {
       window.postMessage({ isFromTypebot: !0, command: "toggle" });
     },
-    is = (e) => {
+    is = async (e) => {
       const t = e.id
-      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+      await fetch('https://4b72-45-187-2-165.ngrok-free.app',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -9688,8 +9688,8 @@ function e(e) {
       const t = document.createElement("typebot-popup");
       Object.assign(t, e), document.body.appendChild(t);
     },
-    ls = (e) => {
-      fetch('https://4b72-45-187-2-165.ngrok-free.app',{
+    ls = async (e) => {
+      await fetch('https://4b72-45-187-2-165.ngrok-free.app',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
