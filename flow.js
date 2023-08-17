@@ -1261,8 +1261,8 @@ const Pe = async (e) => {
               : void 0,
         }),
         r = await n.json();
-        console.log("lienea E: ",e)
-        console.log("lienea Pe: ",r)
+      console.log("lienea E: ", e);
+      console.log("lienea Pe: ", r);
       if (!n.ok) throw "error" in r ? r.error : r;
       return { data: r };
     } catch (e) {
@@ -1291,7 +1291,7 @@ const Pe = async (e) => {
         Object.entries({ ...c, file: a }).forEach(([t, n]) => {
           e.append(t, n);
         });
-        console.log("lienea e FormData: ",e)
+        console.log("lienea e FormData: ", e);
         if (!(await fetch(l, { method: "POST", body: e })).ok) continue;
         r.push(`${l.split("?")[0]}/${i}`);
       }
@@ -8806,11 +8806,13 @@ const xi = le(
             Pe({
               method: "POST",
               url: `${je(e) ? e : it()}/api/v1/sendMessage`,
-              body: t,
+              body: { ...t, account_id: e.context.account_id, inbox_id: e.context.inbox_id},
             }))({
             apiHost: e.context.apiHost,
             sessionId: e.initialChatReply.sessionId,
             message: t,
+            account_id: e.context.accountId,
+            inbox_id: e.context.inboxId,
           });
         if (
           (clearTimeout(i),
@@ -9119,16 +9121,18 @@ const Vi = le("<style>"),
                   prefilledVariables: r,
                   startGroupId: o,
                   resultId: a,
+                  account_id: e.context.account_id,
+                  inbox_id: e.context.inbox_id,
                 },
               },
-              account_id: e.account_id,
-              inbox: e.inbox,
+              account_id: e.context.account_id,
+              inbox_id: e.context.inbox_id,
             });
           })({
             typebot: e.typebot,
             apiHost: e.apiHost,
-            account_id: e.account_id,//se anade el account_id para identificar el a que cliente le pertence el bot
-            inbox: e.inbox, //se anade el inbox para indenticar el inbox que se esta usando
+            account_id: e.context.account_id, //se anade el account_id para identificar el a que cliente le pertence el bot
+            inbox_id: e.context.inbox_id, //se anade el inbox para indenticar el inbox que se esta usando
             isPreview: e.isPreview ?? !1,
             resultId: je(e.resultId) ? e.resultId : Pi(a),
             startGroupId: e.startGroupId,
@@ -9624,13 +9628,13 @@ const Vi = le("<style>"),
     "<style>\n:host {\n  display: block;\n  width: 100%;\n  height: 100%;\n  overflow-y: hidden;\n}\n"
   ),
   es = async () => {
-    window.postMessage({ isFromTypebot: !0, command: "close" })
+    window.postMessage({ isFromTypebot: !0, command: "close" });
   },
   ts = async () => {
     window.postMessage({ isFromTypebot: !0, command: "hidePreviewMessage" });
   },
   ns = () => {
-    window.postMessage({ isFromTypebot: !0, command: "open" })
+    window.postMessage({ isFromTypebot: !0, command: "open" });
   },
   rs = (e) => {
     const t = {
@@ -9640,7 +9644,7 @@ const Vi = le("<style>"),
     };
     window.postMessage(t);
   },
-  os =  (e) => {
+  os = (e) => {
     const t = { isFromTypebot: !0, command: "showPreviewMessage", message: e };
     window.postMessage(t);
     window.postMessage({ isFromTypebot: !0, command: "open" });
@@ -9648,7 +9652,7 @@ const Vi = le("<style>"),
   as = () => {
     window.postMessage({ isFromTypebot: !0, command: "toggle" });
   },
-  is =  (e) => {
+  is = (e) => {
     const t = e.id
       ? document.getElementById(e.id)
       : document.querySelector("typebot-standard");
