@@ -9121,6 +9121,8 @@ const Vi = le("<style>"),
                   resultId: a,
                 },
               },
+              account_id: e.account_id,
+              inbox: e.inbox,
             });
           })({
             typebot: e.typebot,
