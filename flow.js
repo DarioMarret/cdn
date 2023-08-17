@@ -1261,6 +1261,7 @@ const Pe = async (e) => {
               : void 0,
         }),
         r = await n.json();
+        console.log("lienea E: ",e)
         console.log("lienea Pe: ",r)
       if (!n.ok) throw "error" in r ? r.error : r;
       return { data: r };
@@ -9124,6 +9125,8 @@ const Vi = le("<style>"),
           })({
             typebot: e.typebot,
             apiHost: e.apiHost,
+            account_id: e.account_id,//se anade el account_id para identificar el a que cliente le pertence el bot
+            inbox: e.inbox, //se anade el inbox para indenticar el inbox que se esta usando
             isPreview: e.isPreview ?? !1,
             resultId: je(e.resultId) ? e.resultId : Pi(a),
             startGroupId: e.startGroupId,
